@@ -1,10 +1,12 @@
 //required
 let express = require('express')
 let rowdyLogger = require('rowdy-logger')
+let expressJwt = require('express-jwt')
 
 //instance
 let app = express()
 let rowdyResults = rowdyLogger.begin(app)
+require('dotenv').config()
 
 //middleware
 

@@ -3,7 +3,6 @@ let db = require("../models");
 require("dotenv").config();
 let jwt = require("jsonwebtoken");
 
-//POST /auth/login (find/validate use; send token)
 
 router.get('/', (req, res) => {
   db.User.find()
@@ -11,9 +10,11 @@ router.get('/', (req, res) => {
       res.send(users)
   })
   .catch(err => {
-    res.send('error at the user get all' err)
+    res.send('error at the user get all', err)
   })
 })
+
+//POST /auth/login (find/validate use; send token)
 
 router.post("/login", (req, res) => {
     // find user by email in db
