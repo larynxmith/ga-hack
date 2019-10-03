@@ -20,4 +20,15 @@ app.use(
         ]
     }),
     require("./controllers/auth")
-); 
+)
+
+
+//Catch-All route
+app.get("*", (req, res) => {
+    res.status(404).send({ message: "Not Found" });
+});
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Hear, Here!");
+    rowdyResults.print();
+})
