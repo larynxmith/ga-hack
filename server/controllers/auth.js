@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       res.send(users)
   })
   .catch(err => {
-    res.send('error at the user get all' err)
+    res.send('error at the user get all', err)
   })
 })
 
