@@ -50,7 +50,6 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Nav updateUser={this.getUser} user={this.state.user} />
-          <Header />
           <Content updateUser={this.getUser} user={this.state.user} />
         </div>
       </Router>
