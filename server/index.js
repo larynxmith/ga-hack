@@ -2,6 +2,7 @@
 let express = require('express')
 let rowdyLogger = require('rowdy-logger')
 let expressJwt = require('express-jwt')
+let cors = require('cors')
 
 //instance
 let app = express()
@@ -9,6 +10,9 @@ let rowdyResults = rowdyLogger.begin(app)
 require('dotenv').config()
 
 //middleware
+app.use(cors())
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: "10mb" }));
 
 //routes
 app.use(

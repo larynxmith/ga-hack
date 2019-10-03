@@ -2,7 +2,10 @@ let bcrypt = require('bcryptjs')
 let mongoose = require('mongoose')
 import {characterrSchema} from './characters'
 
+<<<<<<< HEAD
 // Define our projectSchema
+=======
+>>>>>>> e5c371b6cc56e55fbae7ff87ec6f3dc225d23e72
 
 let userSchema = new mongoose.Schema({
     firstname: {
@@ -23,8 +26,13 @@ let userSchema = new mongoose.Schema({
         minlength: 8,
         maxlength: 32
     },
+<<<<<<< HEAD
     profilePic: String,
     characters: [characterSchema]
+=======
+    profilePic: String
+    
+>>>>>>> e5c371b6cc56e55fbae7ff87ec6f3dc225d23e72
 })
 
 // USe BCrypt to hash
