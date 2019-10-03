@@ -1,14 +1,6 @@
 let bcrypt = require('bcryptjs')
 let mongoose = require('mongoose')
 
-// Define our projectSchema
-let projectSchema = new mongoose.Schema({
-    name: String,
-    starteDate: String,
-    endDate: String,
-    link: String,
-    about: String
-})
 
 let userSchema = new mongoose.Schema({
     firstname: {

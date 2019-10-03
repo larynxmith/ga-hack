@@ -45,7 +45,7 @@ router.post("/login", (req, res) => {
         });
 });
 
-// POST /auth/signup(vreate user, generate token)
+// POST /auth/signup(create user, generate token)
 router.post("/signup", (req, res) => {
     db.User.findOne({ email: req.body.email })
         .then(user => {
