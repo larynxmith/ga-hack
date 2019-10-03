@@ -16,7 +16,7 @@ app.use(
     }).unless({
         path: [
             { url: "/auth/login", methods: ["POST"] },
-            { url: "/auth/signup", methods: ["POST"] }
+            { url: "/auth/signup", methods: ["POST"] },
         ]
     }),
     require("./controllers/auth")
@@ -28,7 +28,7 @@ app.get("*", (req, res) => {
     res.status(404).send({ message: "Not Found" });
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log("Hear, Here!");
     rowdyResults.print();
 })

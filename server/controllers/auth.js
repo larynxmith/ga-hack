@@ -4,6 +4,17 @@ require("dotenv").config();
 let jwt = require("jsonwebtoken");
 
 //POST /auth/login (find/validate use; send token)
+
+router.get('/', (req, res) => {
+  db.User.find()
+  .then(users => {
+      res.send(users)
+  })
+  .catch(err => {
+    res.send('error at the user get all' err)
+  })
+})
+
 router.post("/login", (req, res) => {
     // find user by email in db
     db.User.findOne({ email: req.body.email })
