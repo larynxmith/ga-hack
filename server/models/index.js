@@ -7,5 +7,3 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dandd', {
 });
 
 module.exports.User = require('./user');
-module.exports.Tag = require('./tag');
-module.exports.Message = require('./message');
