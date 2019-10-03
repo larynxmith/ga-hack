@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/peer2here', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dandd', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
