@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
 }
 
 .App {
@@ -12,19 +13,22 @@ body {
   pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.head-title {
+  font-size: 36px;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* This centers the child element */
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header {
+  text-align: center;
+  background-image: linear-gradient(to right bottom, #E4181990, #B178A590), url('./header.jpg');
+  background-position: top;
+  background-size: cover;
+  height: 95vh ;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%)
 }
 
 .red {
@@ -32,11 +36,13 @@ body {
 }
 
 nav {
-  background-color: lightGrey;
-  height: 5vh;
+  justify-content: space-between;
+  background-color: beige;
+  height: 10vh;
 }
 
 nav ul {
+  margin:0;
   list-style-type: none;
 }
 
@@ -48,7 +54,7 @@ nav a,
 nav a:visited {
   text-decoration: none;
   font-size: 22px;
-  color: orange;
+  color: #636571;
 }
 
 nav a:hover {
