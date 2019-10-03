@@ -21,9 +21,8 @@ let userSchema = new mongoose.Schema({
         minlength: 8,
         maxlength: 32
     },
-    profilePic: String,
+    profilePic: String
     
-    projects: [projectSchema]
 })
 
 // USe BCrypt to hash
