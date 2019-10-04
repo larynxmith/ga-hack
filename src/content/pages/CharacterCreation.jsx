@@ -31,9 +31,10 @@ function CharacterCreation() {
     const [values, setValues] = React.useState({
         alignment: '',
         class: '',
+        firstname: '',
         gender: '',
         backstory: '',
-        name: '',
+        lastname: '',
         personsOfInterest: '',
         race: ''
     });
@@ -44,7 +45,7 @@ function CharacterCreation() {
     //     setLabelWidth(inputLabel.current.offsetWidth);
     // }, []);
 
-    const handleNameChange = name => event => {
+    const handleTextChange = name => event => {
         setValues({ ...values, [name]: event.target.value });
     };
 
@@ -59,10 +60,19 @@ function CharacterCreation() {
         <form className={classes.root} autoComplete="off">
             <TextField
                 id="filled-name"
-                label="Name"
+                label="Enter a First Name"
                 className={classes.textField}
-                value={values.name}
-                onChange={handleNameChange('name')}
+                value={values.firstname}
+                onChange={handleTextChange('firstname')}
+                margin="normal"
+                variant="filled"
+            />
+            <TextField
+                id="filled-name"
+                label="Enter a Last Name"
+                className={classes.textField}
+                value={values.lastname}
+                onChange={handleTextChange('lastname')}
                 margin="normal"
                 variant="filled"
             />
@@ -152,24 +162,33 @@ function CharacterCreation() {
 
             </FormControl>
             <TextField
-                id="filled-multiline-static"
+                id="standard-name"
+
                 value={values.personsOfInterest}
-                label="Persons of Interest"
+                label="Enter any Persons of Interest"
                 multiline
+                onChange={handleTextChange('personsOfInterest')}
                 rows="2"
-                className={classes.poi}
+                className={classes.textField}
                 margin="normal"
-                variant="filled"
             />
             <TextField
-                id="filled-multiline-static"
+                id="standard-name"
+
                 value={values.backstory}
-                label="Your Back Story"
+                label="Enter Your Back Story"
                 multiline
+                onChange={handleTextChange('backstory')}
                 rows="4"
                 className={classes.textField}
                 margin="normal"
-                variant="filled"
+            />
+            <TextField
+                label="Name"
+                className={classes.textField}
+                value={values.name}
+                onChange={handleTextChange('name')}
+                margin="normal"
             />
         </form>
     );
