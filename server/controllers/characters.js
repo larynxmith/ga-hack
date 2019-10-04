@@ -44,7 +44,7 @@ router.post('/character', (req, res) => {
 router.get('/character', (req, res) => {
   db.Character.find()
   .then(character => {
-    console.log('cr')
+    console.log(character)
     res.send({ character })
   })
   .catch(err => {

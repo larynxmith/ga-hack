@@ -20,10 +20,10 @@ class Character extends Component {
   }
 
   getChars = () => {
-    axios.get('localhost:3001/5e/character')
+    axios.get('http://localhost:3001/5e/character')
     .then(response => {
       console.log(response.data)
-      this.setState({ characters: response.data })
+      this.setState({ characters: response.data.character })
     })
     .catch(err => {
       console.log('error getting characters client', err)
@@ -48,13 +48,14 @@ class Character extends Component {
   }
 
   render() {
+    console.log(this.state.characters)
     let chars = this.state.characters.map((c, i) => {
       return <CharSheet
         key={i}
         character={c}
         user={this.props.user}
         getChars={this.getChars}
-        characters={this.state.characters}/>
+        characters={this.state.characters} />
 
     })
     return (
