@@ -36,7 +36,7 @@ class Character extends Component {
         <div>
           Hello world
           <hr />
-          <CharacterCreation user={this.props.user}/>
+          <CharacterCreation classes={this.state.classes} classes={this.state.races} user={this.props.user}/>
         </div>
     )
   }
