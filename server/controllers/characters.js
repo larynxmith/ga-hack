@@ -22,4 +22,30 @@ router.get('/race', (req, res) => {
   })
 })
 
+router.post('/character', (req, res) => {
+  db.Character.create(req.body)
+  .then(character => {
+    res.send(201).send(character)
+  })
+  .catch(err => {
+    console.log('Error while creating', err)
+    if (err.name === 'ValidationError') {
+      res.status(406).isend({ message: 'Validation Error' })
+    } else {
+      res.status(500).send({ message: 'Server Error'})
+    }
+  })
+})
+
+router.get('/character', (req, res) => {
+  db.Character.find()
+  .then(character => {
+    res.send({ character })
+  })
+  .catch(err => {
+    console.log('Error while retrieving characters', err)
+    res.status(500).send({ message: 'Server Error' })
+  })
+})
+
 module.exports = router

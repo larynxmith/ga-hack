@@ -34,7 +34,7 @@ class Character extends Component {
   render() {
     return (
         <div>
-          Hello world
+          <h1>Create a Character</h1>
           <hr />
           <CharacterCreation classes={this.state.classes} classes={this.state.races} user={this.props.user}/>
         </div>

@@ -1,7 +1,7 @@
 let bcrypt = require('bcryptjs')
 let mongoose = require('mongoose')
 let Character = require('./characters')
-
+let Campaign = require('./campaign')
 
 
 let userSchema = new mongoose.Schema({
@@ -27,6 +27,10 @@ let userSchema = new mongoose.Schema({
     characters: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Character'
+    }],
+    campaigns: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Campaigns'
     }]
 
 })
