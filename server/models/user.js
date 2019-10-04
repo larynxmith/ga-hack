@@ -1,6 +1,6 @@
 let bcrypt = require('bcryptjs')
 let mongoose = require('mongoose')
-// const Characters = require('./characters')
+let Character = require('./characters')
 
 
 
@@ -24,7 +24,10 @@ let userSchema = new mongoose.Schema({
         maxlength: 32
     },
     profilePic: String,
-    // characters: [Characters]
+    characters: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Character'
+    }]
 
 })
 

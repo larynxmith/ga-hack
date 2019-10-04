@@ -13,6 +13,7 @@ class Character extends Component {
   }
   componentDidMount() {
     this.getDnd()
+    console.log(this.props)
   }
 
   getDnd = () => {
@@ -23,11 +24,9 @@ class Character extends Component {
     .catch(err => {
       console.log('err', err)
     })
-    console.log('ee')
     axios.get('http://www.dnd5eapi.co/api/races')
     .then(response => {
       this.setState({ race: response.data})
-      console.log(response.data)
     })
     .catch(err => {
       console.log('err', err)
