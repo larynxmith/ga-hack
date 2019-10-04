@@ -19,9 +19,7 @@ class Nav extends Component {
     if (this.props.user) {
       links = (
         <span>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
+        
         <li>
           <Link to="/character">Characters</Link>
         </li>

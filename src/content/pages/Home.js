@@ -1,7 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
+const useStyles = makeStyles(theme => ({
+    root: {
+        padding: theme.spacing(3, 2),
+    },
+}));
 
 const Home = props => {
+    const classes = useStyles();
   return (
     <div>
       <header className="App-header">
@@ -11,12 +20,32 @@ const Home = props => {
       </header>
       <div className="home-container">
         <div className="text-box">
-          <h1>Create Your Group</h1>
-          <h2>Make a guild for all adventurers to join and add their Heros</h2>
-          <h1>Create Your Hero</h1>
-          <h2>Use our list of presets from 5th edition to form your character, and add a backstory</h2>
-          <h1>Access during your adventure</h1>
-          <h2>Look at your Hero to remind yourself why you adventure</h2>
+                <Paper className={classes.root}>
+                    <Typography variant="h5" component="h3">
+                        Create Your Group
+                    </Typography>
+                    <Typography component="p">
+                          Make a guild for all adventurers to join and add their Heroes
+                    </Typography>
+                </Paper>
+                <br />
+                <Paper className={classes.root}>
+                    <Typography variant="h5" component="h3">
+                          Create Your Hero
+                    </Typography>
+                    <Typography component="p">
+                        Use our list of presets from 5th edition to form your character, and add a backstory
+                </Typography>
+                </Paper>
+                <br />
+                <Paper className={classes.root}>
+                    <Typography variant="h5" component="h3">
+                          Access During Your Adventure
+                    </Typography>
+                    <Typography component="p">
+                        Look at your Hero to remind yourself why you adventure
+                </Typography>
+                </Paper>
         </div>
       </div>
     </div>
