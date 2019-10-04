@@ -40,11 +40,20 @@ router.post('/character', (req, res) => {
 router.get('/character', (req, res) => {
   db.Character.find()
   .then(character => {
+    console.log('cr')
     res.send({ character })
   })
   .catch(err => {
     console.log('Error while retrieving characters', err)
     res.status(500).send({ message: 'Server Error' })
+  })
+})
+
+router.get('/campaign', (req, res) => {
+  db.Campaign.find()
+  .then(campaign => {
+    console.log(campaign)
+    res.send({ campaign })
   })
 })
 

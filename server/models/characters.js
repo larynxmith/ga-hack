@@ -1,4 +1,5 @@
 let mongoose = require('mongoose')
+let Campaign = require('./campaign')
 
 let characterSchema = new mongoose.Schema({
     firstname: {
@@ -12,6 +13,10 @@ let characterSchema = new mongoose.Schema({
     backstory: String,
     personsOfInterest: [],
     alignment: String,
+    campaigns: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Campaign'
+    }],
     profilePic: String,
 })
 
