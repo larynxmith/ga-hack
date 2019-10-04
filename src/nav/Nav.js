@@ -23,6 +23,9 @@ class Nav extends Component {
           <Link to="/profile">Profile</Link>
         </li>
         <li>
+          <Link to="/character">Create Character</Link>
+        </li>
+        <li>
           <a onClick={this.handleLogout}>Logout</a>
         </li>
         </span>
@@ -43,8 +46,10 @@ class Nav extends Component {
 
     return(
       <nav>
+        <div class='homebox'>
+          <a className="homeboi"><Link to="/" >Home</Link></a>
+        </div>
         <ul>
-          <li><Link to="/" >Home</Link></li>
           {links}
         </ul>
       </nav>
