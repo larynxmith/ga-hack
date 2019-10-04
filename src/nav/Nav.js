@@ -46,7 +46,7 @@ class Nav extends Component {
 
     return(
       <nav>
-        <div class='homebox'>
+        <div className='homebox'>
           <a className="homeboi"><Link to="/" >Home</Link></a>
         </div>
         <ul>

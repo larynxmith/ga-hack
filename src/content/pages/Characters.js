@@ -20,6 +20,7 @@ class Character extends Component {
   getChars = () => {
     axios.get('localhost:3001/5e/character')
     .then(response => {
+      console.log(response.data)
       this.setState({ characters: response.data })
     })
     .catch(err => {
