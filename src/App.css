@@ -26,7 +26,7 @@ body {
 .head-title {
   font-size: 36px;
   position:absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%); /* This centers the child element */
   text-align: center;
@@ -37,7 +37,7 @@ body {
   background-image: linear-gradient(to right bottom, #E4181990, #B178A590), url('./header.jpg');
   background-position: top;
   background-size: cover;
-  height: 95vh ;
+  height: 75vh ;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%)
 }
 
