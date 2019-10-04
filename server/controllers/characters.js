@@ -22,6 +22,8 @@ router.get('/race', (req, res) => {
   })
 })
 
+//Create a char
+
 router.post('/character', (req, res) => {
   db.Character.create(req.body)
   .then(character => {
@@ -37,6 +39,8 @@ router.post('/character', (req, res) => {
   })
 })
 
+//Get All Chars
+
 router.get('/character', (req, res) => {
   db.Character.find()
   .then(character => {
@@ -49,6 +53,39 @@ router.get('/character', (req, res) => {
   })
 })
 
+//Get One Char
+
+router.get('/character/:id', (req, res) => {
+  db.Character.find()
+  .then(character => {
+    console.log('cr')
+    res.send({ character })
+  })
+  .catch(err => {
+    console.log('Error while retrieving characters', err)
+    res.status(500).send({ message: 'Server Error' })
+  })
+})
+
+//Edit One Char
+
+router.put('/character/:id', (req, res) => {
+  db.Character.findOneAndUpdate({
+    _id: req.params.id
+  },
+  req.body,
+  {new: true})
+  .then(updatedChar => {
+    res.status(201).send(updatedChar)
+  })
+  .catch(err => {
+    console.log('Error when updating characters', err)
+    res.status(500).send({ message: 'Server Error'})
+  })
+})
+
+
+
 router.get('/campaign', (req, res) => {
   db.Campaign.find()
   .then(campaign => {
@@ -56,5 +93,36 @@ router.get('/campaign', (req, res) => {
     res.send({ campaign })
   })
 })
+
+router.post('/campaign', (req, res) => {
+  db.Campaign.create(req.body)
+  .then(campaign => {
+    res.send(201).send(campaign)
+  })
+  .catch(err => {
+    console.log('Error while creating', err)
+    if (err.name === 'ValidationError') {
+      res.status(406).isend({ message: 'Validation Error' })
+    } else {
+      res.status(500).send({ message: 'Server Error'})
+    }
+  })
+})
+
+router.put('/campaign/:id', (req, res) => {
+  db.Character.findOneAndUpdate({
+    _id: req.params.id
+  },
+  req.body,
+  {new: true})
+  .then(updatedCam => {
+    res.status(201).send(updatedCam)
+  })
+  .catch(err => {
+    console.log('Error when updating characters', err)
+    res.status(500).send({ message: 'Server Error'})
+  })
+})
+
 
 module.exports = router

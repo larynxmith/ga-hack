@@ -10,6 +10,7 @@ let characterSchema = new mongoose.Schema({
     lastname: String,
     class: String,
     race: String,
+    gender: String,
     backstory: String,
     personsOfInterest: [],
     alignment: String,
