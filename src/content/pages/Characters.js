@@ -33,14 +33,16 @@ class Character extends Component {
   getDnd = () => {
     axios.get('http://www.dnd5eapi.co/api/classes')
     .then(response => {
-      this.setState({ class: response.data })
+        console.log('classes: ', response.data)
+      this.setState({ classes: response.data.results })
     })
     .catch(err => {
       console.log('err', err)
     })
     axios.get('http://www.dnd5eapi.co/api/races')
     .then(response => {
-      this.setState({ race: response.data})
+        this.setState({ races: response.data.results})
+
     })
     .catch(err => {
       console.log('err', err)
