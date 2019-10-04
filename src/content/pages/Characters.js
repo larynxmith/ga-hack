@@ -1,15 +1,13 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 
-
+import CharacterCreation from './CharacterCreation';
 
 class Character extends Component {
-
   state = {
     classes: [],
     races: [],
     user: this.props.user
-
   }
   componentDidMount() {
     this.getDnd()
@@ -35,9 +33,11 @@ class Character extends Component {
 
   render() {
     return (
-      <div>
-        <h1>stub char</h1>
-      </div>
+        <div>
+          Hello world
+          <hr />
+          <CharacterCreation user={this.props.user}/>
+        </div>
     )
   }
 }
