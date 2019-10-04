@@ -10,6 +10,8 @@ let characterSchema = new mongoose.Schema({
     class: String,
     race: String,
     backstory: String,
+    personsOfInterest: [],
+    alignment: String,
     profilePic: String,
 })
 

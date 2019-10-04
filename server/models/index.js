@@ -7,4 +7,4 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dandd', {
 });
 
 module.exports.User = require('./user');
-module.exports.Charcter = require('characters')
+module.exports.Character = require('./characters')
