@@ -90,9 +90,16 @@ const CharacterModal = (props) => {
         setValues(e.target.value)
     }
 
+let classesList = props.classes ? props.classes.map((c, i) => {
+    console.log('classesList: ', props.classes)
+    return <MenuItem key={i} value={c.name}>{c.name}</MenuItem>
+}) : ''
 
-
-
+let racesList = props.races ? props.races.map((r, i) => {
+    console.log('racesLIst: ', props.races)
+    return <MenuItem key={i} value={r.name}>{r.name}</MenuItem>
+}) : ''
+console.log(racesList)
     return (
         <div>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -154,13 +161,10 @@ const CharacterModal = (props) => {
                                 }}
 
                             >
-                            forEach r in races:
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                {racesList}
                             </Select>
                             {/*  */}
                         </FormControl>
@@ -177,10 +181,8 @@ const CharacterModal = (props) => {
                             >
                                 <MenuItem value="">
                                     <em>None</em>
+                                {classesList}
                                 </MenuItem>
-                                <MenuItem value={11}>Eleven</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
                             </Select>
 
                         </FormControl><FormControl className={classes.formControl}>
