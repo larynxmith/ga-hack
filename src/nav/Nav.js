@@ -23,7 +23,7 @@ class Nav extends Component {
           <Link to="/profile">Profile</Link>
         </li>
         <li>
-          <Link to="/character">Create Character</Link>
+          <Link to="/character">Characters</Link>
         </li>
         <li>
           <a onClick={this.handleLogout}>Logout</a>
