@@ -62,9 +62,8 @@ class Character extends Component {
         <div>
           <h1>Create a Character</h1>
           <hr />
-
-          <CharacterCreation classes={this.state.classes} classes={this.state.races} user={this.props.user}/>
-          <CharacterModal />
+            <CharacterCreation classes={this.state.classes} races={this.state.races} user={this.props.user}/>
+            <CharacterModal classes={this.state.classes} races={this.state.races} user={this.props.user}/>
           <div className="character-container">
             {chars}
           </div>

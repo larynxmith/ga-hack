@@ -154,6 +154,7 @@ const CharacterModal = (props) => {
                                 }}
 
                             >
+                            forEach r in races:
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
