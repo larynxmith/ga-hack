@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 
 import CharacterCreation from './CharacterCreation';
+import CharacterModal from './CharacterModal';
 
 class Character extends Component {
   state = {
@@ -37,6 +38,7 @@ class Character extends Component {
           <h1>Create a Character</h1>
           <hr />
           <CharacterCreation classes={this.state.classes} classes={this.state.races} user={this.props.user}/>
+          <CharacterModal />
         </div>
     )
   }
