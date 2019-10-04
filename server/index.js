@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ limit: "10mb" }));
 
 //routes
+app.use('/5e', require('./controllers/characters'))
 app.use(
     "/auth",
     expressJwt({
