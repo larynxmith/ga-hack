@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,6 +20,10 @@ const useStyles = makeStyles(theme => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+    }
 }));
 
 function CharacterCreation() {
@@ -28,15 +33,20 @@ function CharacterCreation() {
         alignment: '',
         class: '',
         gender: '',
-        name: 'hai',
+        mission_statement: '',
+        name: '',
         race: ''
     });
 
-    const inputLabel = React.useRef(null);
-    const [labelWidth, setLabelWidth] = React.useState(0);
+    // const inputLabel = React.useRef(null);
+    // const [labelWidth, setLabelWidth] = React.useState(0);
     // React.useEffect(() => {
     //     setLabelWidth(inputLabel.current.offsetWidth);
     // }, []);
+
+    const handleNameChange = name => event => {
+        setValues({ ...values, [name]: event.target.value });
+    };
 
     const handleChange = event => {
         setValues(oldValues => ({
@@ -47,9 +57,18 @@ function CharacterCreation() {
 
     return (
         <form className={classes.root} autoComplete="off">
+            <TextField
+                id="filled-name"
+                label="Name"
+                className={classes.textField}
+                value={values.name}
+                onChange={handleNameChange('name')}
+                margin="normal"
+                variant="filled"
+            />
 
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-auto-width">Gender</InputLabel>
+                <InputLabel htmlFor="age-simple">Gender</InputLabel>
                 <Select
                     value={values.gender}
                     onChange={handleChange}
@@ -57,7 +76,7 @@ function CharacterCreation() {
                         name: 'gender',
                         id: 'age-auto-width',
                     }}
-                    autoWidth
+
                 >
                     <MenuItem value="">
                         <em>None</em>
@@ -65,10 +84,10 @@ function CharacterCreation() {
                     <MenuItem value="male">Male</MenuItem>
                     <MenuItem value="female">Female</MenuItem>
                 </Select>
-                <FormHelperText>Auto width</FormHelperText>
+
             </FormControl>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-auto-width">Race</InputLabel>
+                <InputLabel htmlFor="age-simple">Race</InputLabel>
                 <Select
                     value={values.age}
                     onChange={handleChange}
@@ -76,7 +95,7 @@ function CharacterCreation() {
                         name: 'race',
                         id: 'age-auto-width',
                     }}
-                    autoWidth
+
                 >
                     <MenuItem value="">
                         <em>None</em>
@@ -85,10 +104,10 @@ function CharacterCreation() {
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
-                <FormHelperText>Auto width</FormHelperText>
+                {/*  */}
             </FormControl>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-auto-width">Class</InputLabel>
+                <InputLabel htmlFor="age-simple">Class</InputLabel>
                 <Select
                     value={values.age}
                     onChange={handleChange}
@@ -96,7 +115,7 @@ function CharacterCreation() {
                         name: 'class',
                         id: 'age-auto-width',
                     }}
-                    autoWidth
+
                 >
                     <MenuItem value="">
                         <em>None</em>
@@ -105,9 +124,9 @@ function CharacterCreation() {
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
-                <FormHelperText>Auto width</FormHelperText>
+
             </FormControl><FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-auto-width">Alignment</InputLabel>
+                <InputLabel htmlFor="age-simple">Alignment</InputLabel>
                 <Select
                     value={values.alignment}
                     onChange={handleChange}
@@ -115,26 +134,33 @@ function CharacterCreation() {
                         name: 'alignment',
                         id: 'age-auto-width',
                     }}
-                    autoWidth
+
                 >
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
                     <MenuItem value={10}>Lawful Good</MenuItem>
-                        <MenuItem value="lawful-neutral">Lawful Neutral</MenuItem>
-                        <MenuItem value="lawful-evil">Lawful Evil</MenuItem>
-                        <MenuItem value="neutal-good">Neutral Good</MenuItem>
-                        <MenuItem value="neutral">Neutral</MenuItem>
-                        <MenuItem value="neutral-evil">Neutral-Evil</MenuItem>
-                        <MenuItem value="chaotic-good">Chaotic Good</MenuItem>
-                        <MenuItem value="chaotic-neutral">Chaotic Neutral</MenuItem>
-                        <MenuItem value="chaotic-evil">Chaotic Evil</MenuItem>
+                    <MenuItem value="lawful-neutral">Lawful Neutral</MenuItem>
+                    <MenuItem value="lawful-evil">Lawful Evil</MenuItem>
+                    <MenuItem value="neutal-good">Neutral Good</MenuItem>
+                    <MenuItem value="neutral">Neutral</MenuItem>
+                    <MenuItem value="neutral-evil">Neutral-Evil</MenuItem>
+                    <MenuItem value="chaotic-good">Chaotic Good</MenuItem>
+                    <MenuItem value="chaotic-neutral">Chaotic Neutral</MenuItem>
+                    <MenuItem value="chaotic-evil">Chaotic Evil</MenuItem>
                 </Select>
-                <FormHelperText>Auto width</FormHelperText>
+
             </FormControl>
-            
-
-
+            <TextField
+                id="filled-multiline-static"
+                value={values.mission_statement}
+                label="Mission Statement"
+                multiline
+                rows="4"
+                className={classes.textField}
+                margin="normal"
+                variant="filled"
+            />
         </form>
     );
 }
