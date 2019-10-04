@@ -29,12 +29,12 @@ const useStyles = makeStyles(theme => ({
 function CharacterCreation() {
     const classes = useStyles();
     const [values, setValues] = React.useState({
-        age: '',
         alignment: '',
         class: '',
         gender: '',
-        mission_statement: '',
+        backstory: '',
         name: '',
+        personsOfInterest: '',
         race: ''
     });
 
@@ -153,8 +153,18 @@ function CharacterCreation() {
             </FormControl>
             <TextField
                 id="filled-multiline-static"
-                value={values.mission_statement}
-                label="Mission Statement"
+                value={values.personsOfInterest}
+                label="Persons of Interest"
+                multiline
+                rows="2"
+                className={classes.poi}
+                margin="normal"
+                variant="filled"
+            />
+            <TextField
+                id="filled-multiline-static"
+                value={values.backstory}
+                label="Your Back Story"
                 multiline
                 rows="4"
                 className={classes.textField}
