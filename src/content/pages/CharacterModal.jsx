@@ -64,7 +64,7 @@ const CharacterModal = (props) => {
         let token = localStorage.getItem('authToken')
 
         console.log('values:: ', values)
-        axios.post(`${BASE_URL}/characters`,
+        axios.post(`${BASE_URL}/character`,
             {
                 alignment: values.alignment,
                 class: values.class,
@@ -87,19 +87,22 @@ const CharacterModal = (props) => {
     }
 
     const handleChange = (e) => {
-        setValues(e.target.value)
+        // make a copy of values?
+        let vals = { ...values }
+        vals[e.target.name] = e.target.value;
+        setValues(vals)
     }
 
-let classesList = props.classes ? props.classes.map((c, i) => {
-    console.log('classesList: ', props.classes)
-    return <MenuItem key={i} value={c.name}>{c.name}</MenuItem>
-}) : ''
+    let classesList = props.classes ? props.classes.map((c, i) => {
+        console.log('classesList: ', props.classes)
+        return <MenuItem key={i} value={c.name}>{c.name}</MenuItem>
+    }) : ''
 
-let racesList = props.races ? props.races.map((r, i) => {
-    console.log('racesLIst: ', props.races)
-    return <MenuItem key={i} value={r.name}>{r.name}</MenuItem>
-}) : ''
-console.log(racesList)
+    let racesList = props.races ? props.races.map((r, i) => {
+        console.log('racesList: ', props.races)
+        return <MenuItem key={i} value={r.name}>{r.name}</MenuItem>
+    }) : ''
+    console.log(racesList)
     return (
         <div>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -181,7 +184,7 @@ console.log(racesList)
                             >
                                 <MenuItem value="">
                                     <em>None</em>
-                                {classesList}
+                                    {classesList}
                                 </MenuItem>
                             </Select>
 

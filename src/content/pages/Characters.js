@@ -63,7 +63,7 @@ class Character extends Component {
     return (
         <div>
           <h1>Characters</h1>
-          <CharacterModal classes={this.state.classes} classes={this.state.races} user={this.props.user}/>
+          <CharacterModal classes={this.state.classes} races={this.state.races} user={this.props.user}/>
           <hr />
           <div className="character-container">
             {chars}
